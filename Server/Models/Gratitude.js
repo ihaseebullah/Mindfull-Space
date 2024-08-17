@@ -14,13 +14,13 @@ gratitudeQuestionSchema.index({ questionText: 'text' });
 const gratitudeAnswerSchema = new mongoose.Schema({
     question: { type: mongoose.Schema.Types.ObjectId, ref: 'GratitudeQuestion', required: true },
     answerText: { type: String, required: true, trim: true },
-    user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true, index: true },
+    userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true, index: true },
 }, {
     timestamps: true,
     versionKey: false
 });
 
-gratitudeAnswerSchema.index({ user: 1, createdAt: -1 });
+gratitudeAnswerSchema.index({ userId: 1, createdAt: -1 });
 gratitudeAnswerSchema.index({ question: 1, createdAt: -1 });
 gratitudeAnswerSchema.index({ answerText: 'text' });
 

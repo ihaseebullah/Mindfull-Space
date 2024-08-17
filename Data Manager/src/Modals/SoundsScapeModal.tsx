@@ -52,7 +52,7 @@ const SoundscapeModal = ({ setShowSoundscapeModal }) => {
       };
 
       await axios.post(
-        "http://localhost:1000/api/v1/mindfullspace/soundscape/create",
+        "http://localhost:1000/api/v1/mindfullspace/sound-scape/upload",
         soundscapeData
       );
 

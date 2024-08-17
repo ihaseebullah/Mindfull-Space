@@ -14,6 +14,7 @@ const soundscapesSchema = new mongoose.Schema({
 soundscapesSchema.index({ author: 1, title: 1 });
 soundscapesSchema.index({ title: 'text', description: 'text' });
 
+
 const SoundScape = mongoose.model("SoundScape", soundscapesSchema);
 
 module.exports = { SoundScape };
