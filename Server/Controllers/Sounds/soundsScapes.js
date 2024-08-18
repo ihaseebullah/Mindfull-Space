@@ -45,7 +45,20 @@ const getSoundScapes = async (req, res) => {
         return res.status(500).json({ message: "Internal server error." });
     }
 };
+const getAllSoundscapes = async (req, res) => {
+    try {
+        const soundscapes = await SoundScape.find({});
+        if (soundscapes.length === 0) {
+            return res.status(404).json({ message: "Nothing matching was found" });
+        } else {
+            return res.status(200).json(soundscapes);
+        }
+    } catch (error) {
+        console.error("Error getting soundscapes:", error);
+        return res.status(500).json({ message: "Internal server error." });
+    }
+}
 
 module.exports = {
-    uploadSoundScape, getSoundScapes
+    uploadSoundScape, getSoundScapes, getAllSoundscapes
 };

@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import MeditationModal from "./Modals/MeditationModal";
 import axios from "axios";
 import SoundscapeModal from "./Modals/SoundsScapeModal";
+import GratitudeQuestionModal from "./Modals/GratitudeModal";
+import MeditationApp from "./Components/Meditation";
 
 function App() {
   const [showMeditationModal, setShowMeditationModal] = useState(false);
@@ -54,21 +56,12 @@ function App() {
 
       {/* Gratitude Modal */}
       {showGratitudeModal && (
-        <div className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-50">
-          <div className="bg-white p-8 rounded-lg shadow-2xl max-w-md w-full">
-            <h2 className="text-3xl font-bold mb-6 text-center">
-              Upload Gratitude Questions
-            </h2>
-            {/* Form elements go here */}
-            <button
-              className="mt-4 px-6 py-2 bg-red-500 text-white rounded-full hover:bg-red-600 transition duration-300"
-              onClick={() => setShowGratitudeModal(false)}
-            >
-              Close
-            </button>
-          </div>
-        </div>
+        <GratitudeQuestionModal setShowGratitudeModal={setShowGratitudeModal} />
       )}
+
+
+
+
     </div>
   );
 }

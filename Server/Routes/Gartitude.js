@@ -5,7 +5,7 @@ const GratitudeRouter = require('express').Router()
 
 GratitudeRouter.post('/gratitude/create', addGratitudeQuestion)
 GratitudeRouter.post('/gratitude/answer', submitGratitudeAnswer)
+GratitudeRouter.get('/gratitude/get-by-mood/:mood', getGratitudeQuestionsByMood)
 GratitudeRouter.get('/gratitude/get/:userId', getGratitudeAnswersByUserId)
-GratitudeRouter.get('/gratitude/get/:mood', getGratitudeQuestionsByMood)
 
 module.exports = { GratitudeRouter }

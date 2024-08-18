@@ -6,7 +6,7 @@ const getMeditations = async (req, res) => {
         const query = {};
 
         if (title) {
-            query.title = { $regex: title, $options: 'i' }; 
+            query.title = { $regex: title, $options: 'i' };
         }
         if (genre) {
             query.genre = genre;
@@ -35,6 +35,22 @@ const getMeditations = async (req, res) => {
         return res.status(500).json({ message: "Internal server error." });
     }
 };
+
+
+const getAll = async (req, res) => {
+    try {
+        const meditations = await Meditation.find({});
+        if (!(meditations.length > 0)) {
+            return res.status(404).json({ message: "Nothing matching were found" });
+        } else {
+            return res.status(200).json(meditations);
+        }
+    } catch (error) {
+        console.error("Error getting meditations:", error);
+        return res.status(500).json({ message: "Internal server error." });
+    }
+
+}
 module.exports = {
-    getMeditations,
+    getMeditations,getAll
 };

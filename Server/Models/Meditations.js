@@ -6,7 +6,7 @@ const meditationSchema = new mongoose.Schema({
     author: { type: String, trim: true },
     duration: { type: Number, required: true },
     tags: { type: [String], index: true },
-    genre: { type: String, trim: true, index: true },
+    genre: { type: String, enum: ['grateful', 'happy', 'content', 'peaceful', 'neutral'], index: true },
     thumbnailLink: { type: String, trim: true },
     mediaLink: { type: String, required: true, trim: true },
 }, {
