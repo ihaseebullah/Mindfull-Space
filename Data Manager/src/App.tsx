@@ -4,6 +4,7 @@ import axios from "axios";
 import SoundscapeModal from "./Modals/SoundsScapeModal";
 import GratitudeQuestionModal from "./Modals/GratitudeModal";
 import MeditationApp from "./Components/Meditation";
+import { Link } from "react-router-dom";
 
 function App() {
   const [showMeditationModal, setShowMeditationModal] = useState(false);
@@ -22,6 +23,9 @@ function App() {
         <h1 className="text-5xl md:text-6xl font-extrabold text-center text-gray-900 mb-8">
           Mindful Space Data Manager
         </h1>
+        <h6 className="text-2xl md:2text-xl font-extrabold  text-gray-900 mb-2">
+          Upload Data
+        </h6>
         <div className="space-y-4 space-x-4">
           <button
             className="px-8 py-3 bg-blue-500 text-white text-lg font-semibold rounded-full shadow-lg hover:bg-blue-600 hover:shadow-xl transition duration-300"
@@ -42,6 +46,30 @@ function App() {
             Upload Gratitude Questions
           </button>
         </div>
+        <h6 className="text-2xl md:2text-xl font-extrabold  text-gray-900 mb-2 mt-8">
+          View Data
+        </h6>
+        <div className="space-y-4 space-x-4">
+          <Link to="/meditation">
+            <button className="px-8 py-3 bg-blue-500 text-white text-lg font-semibold rounded-full shadow-lg hover:bg-blue-600 hover:shadow-xl transition duration-300">
+            Manage Meditation
+            </button>
+          </Link>
+          <Link to="/sound-scapes">
+            <button
+              className="px-8 py-3 bg-green-500 text-white text-lg font-semibold rounded-full shadow-lg hover:bg-green-600 hover:shadow-xl transition duration-300"
+            >
+              Manage Soundscape
+            </button>
+          </Link>
+          <Link to="/sound-scapes">
+            <button
+              className="px-8 py-3 bg-purple-500 text-white text-lg font-semibold rounded-full shadow-lg hover:bg-purple-600 hover:shadow-xl transition duration-300"
+            >
+              Manage Gratitude Questions
+            </button>
+          </Link>
+        </div>
       </div>
 
       {/* Meditation Modal */}
@@ -58,10 +86,6 @@ function App() {
       {showGratitudeModal && (
         <GratitudeQuestionModal setShowGratitudeModal={setShowGratitudeModal} />
       )}
-
-
-
-
     </div>
   );
 }
